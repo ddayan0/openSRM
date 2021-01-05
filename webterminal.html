@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!-- https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288 -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+    </head>
+    <body>
+      <script>
+
+        // CHANGE FUNCTION
+        // when 'startmon' is typed
+        // will establish connection with server and recieve data
+        $('body').terminal({
+            startmon: function(what) {
+              // ugh, need to fix this stupid  concat function
+              // make it expanded
+                if(what.includes('startmon 0')){
+                  console.log('started!')
+                  // nothing else for now
+                }
+          
+            }
+        }, {
+            greetings: 'SERVER RESOURCE MONITOR'
+        });
+        </script>
+    </body>
+  </html>
