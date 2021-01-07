@@ -13,14 +13,14 @@
         // when 'startmon' is typed
         // will establish connection with server and recieve data
         $('body').terminal({
-            startmon: function(what) {
-              // ugh, need to fix this stupid  concat function
-              // make it expanded
-                if(what.includes('startmon 0')){
-                  console.log('started!')
-                  // nothing else for now
-                }
-          
+            startmon: function() {
+              console.log('works!')
+
+
+              
+            },
+            help: function() {
+              this.echo('Type startmon To Start The Monitor')
             }
         }, {
             greetings: 'SERVER RESOURCE MONITOR'
