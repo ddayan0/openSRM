@@ -1,8 +1,6 @@
 import React, {Fragment} from 'react';
 import {Helmet} from "react-helmet";
 
-import "../components/termCode.js"
-
 class TerminalHead extends React.Component{
     render() {
         return(
