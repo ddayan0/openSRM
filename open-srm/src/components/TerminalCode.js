@@ -1,27 +1,22 @@
 import React from "react";
-import $ from 'jquery';
-import '../components/loader'
+import { findDOMNode } from "react-dom"
+import "jquery.terminal"
+import $ from "jquery"
 
 class TerminalCode extends React.Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
-  componentDidMount() {
-    $('body').terminal({
-      startmon: function() {
-        console.log("Hi ! Is this thing on ?")
-
-      },
-      help: function() {
-        this.echo('type "startmon" to start the monitor')
-      }
-    });
-  }
   render() {
-    return (
-       <h1>Hi! Is this thing on ?</h1>
-    );
+      return (
+        jQuery(function($, undefined){
+          $('body').terminal(function(command){
+              if(command !== ''){
+                var result = window.eval(command);
+                if(result != undefined) {
+                  this.echo(String(result))
+                }
+              }
+          }
+        }
+    ));
   }
 }
 export default TerminalCode;
