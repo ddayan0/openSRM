@@ -1,22 +1,22 @@
-import React from "react";
-import { findDOMNode } from "react-dom"
+import * as React from 'react'
 import "jquery.terminal"
-import $ from "jquery"
+import jQuery from 'jquery'
 
 class TerminalCode extends React.Component {
   render() {
       return (
-        jQuery(function($, undefined){
-          $('body').terminal(function(command){
-              if(command !== ''){
-                var result = window.eval(command);
-                if(result != undefined) {
-                  this.echo(String(result))
-                }
-              }
-          }
-        }
-    ));
+        // jQuery(function($, undefined) {
+        //   $('body').terminal(function(command) {
+        //     if (command !== '') {
+        //       var result = window.eval(command);
+        //       if (result != undefined) {
+        //         this.echo(String(result))
+        //       }
+        //     }
+        //   })
+        // })
+        <body></body>
+    );
   }
 }
 export default TerminalCode;
