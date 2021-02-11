@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!-- https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288 -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA==" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+    </head>
+    <body>
+        <div class="tv">
+            <div id="term"></div>
+        </div> 
+      <script>
+        // CHANGE FUNCTION
+        // when 'startmon' is typed
+        // will establish connection with server and recieve data
+        $('body').terminal({
+            startmon: function() {
+              console.log('Just Read The Instructions')
+              var socket = io.connect('http://localhost:8080');
+              io.set('origins', 'http://localhost:8080');
+              socket.on('output', function (data) {
+                data = data.replace("n", "<br>");
+                data = data.replace("r", "<br>");
+                // Append the data to our terminal
+              $('.terminal').append(data);
+              });              
+            },
+            help: function() {
+              this.echo('Type startmon To Start The Monitor')
+            }
+        }, {
+            greetings: 'SERVER RESOURCE MONITOR'
+        });
+        </script>
+    </body>
+  </html>
