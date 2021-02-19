@@ -19,7 +19,7 @@
             startmon: function() {
               console.log('Just Read The Instructions')
               var socket = io.connect('http://localhost:8080');
-              io.set('origins', 'http://localhost:8080');
+              // io.set('origins', 'http://localhost:8080');
               socket.on('output', function (data) {
                 data = data.replace("n", "<br>");
                 data = data.replace("r", "<br>");
@@ -28,7 +28,7 @@
               });              
             },
             help: function() {
-              this.echo('Type startmon To Start The Monitor')
+              this.echo("type 'startmon' to start the monitor")
             }
         }, {
             greetings: 'SERVER RESOURCE MONITOR'

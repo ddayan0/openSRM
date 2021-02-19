@@ -2,6 +2,7 @@
 // code taken from https://hub.packtpub.com/making-simple-web-based-ssh-client-using-nodejs-and-socketio/
 // to be modified and included on my own server
 
+console.log('Just Read The Instructions')
 
 var express = require('express');
 var http = require('http');
@@ -10,7 +11,7 @@ var pty = require('node-pty');
 
 var app = express()
 app.use("/",express.static("./"));
-var server = http.createServer(app).listen(8060)
+var server = http.createServer(app).listen(8080)
 var io = require('socket.io')(server);
 
 // When a new socket connects
