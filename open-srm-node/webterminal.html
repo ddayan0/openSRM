@@ -18,14 +18,21 @@
         $('body').terminal({
             startmon: function() {
               console.log('Just Read The Instructions')
+              // Connect to the socket.io server
               var socket = io.connect('http://localhost:8080');
-              // io.set('origins', 'http://localhost:8080');
+              // Wait for data from the server
               socket.on('output', function (data) {
-                data = data.replace("n", "<br>");
-                data = data.replace("r", "<br>");
-                // Append the data to our terminal
+              // Insert some line breaks where they belong
+              data = data.replace("n", "<br>");
+              data = data.replace("r", "<br>");
+              // Append the data to our terminal
               $('.terminal').append(data);
-              });              
+              });
+              // Listen for user input and pass it to the server
+              $(document).on("keypress",function(e){
+              var char = String.fromCharCode(e.which);
+              socket.emit("input", char);
+            });              
             },
             help: function() {
               this.echo("type 'startmon' to start the monitor")

@@ -25,9 +25,9 @@ io.on('connection', function(socket){
        env: process.env
     });
     // Listen on the terminal for output and send it to the client
-    IPty.on('data', function(data){
-       socket.emit('output', data);
-    });
+   //  pty.on('data', function(data){
+   //     socket.emit('output', data);
+   //  });
     // Listen on the client and send any input to the terminal
     socket.on('input', function(data){
        term.write(data);
