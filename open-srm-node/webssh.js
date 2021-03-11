@@ -26,7 +26,7 @@ console.log("Architecture: " + os.arch());
 // When a new socket connects
 io.on('connection', function(socket){
     // Create terminal
-    var term = pty.spawn('sh', [], {
+    var term = pty.spawn('/usr/bin/htop', [], {
        name: 'xterm-color',
        cols: 80,
        rows: 30,
@@ -43,6 +43,6 @@ io.on('connection', function(socket){
     // When socket disconnects, destroy the terminal
     socket.on("disconnect", function(){
        term.destroy();
-       console.log("bye");
+       console.log("Socket Disconnected!");
     });
 });
