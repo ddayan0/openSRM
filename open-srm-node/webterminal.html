@@ -23,8 +23,8 @@
               // Wait for data from the server
               socket.on('output', function (data) {
               // Insert some line breaks where they belong
-              data = data.replace("n", "<br>");
-              data = data.replace("r", "<br>");
+              // data = data.replace("n", "<br>");
+              // data = data.replace("r", "<br>");
               // Append the data to our terminal
               $('.terminal').append(data);
               });
