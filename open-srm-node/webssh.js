@@ -26,7 +26,7 @@ console.log("Architecture: " + os.arch());
 // When a new socket connects
 io.on('connection', function(socket){
     // Create terminal
-    var term = pty.spawn('/usr/bin/collectl', [], {
+    var term = pty.spawn('/usr/local/bin/cpuscript.x', [], {
        name: 'xterm-color',
        cols: 80,
        rows: 30,
