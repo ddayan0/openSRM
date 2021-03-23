@@ -26,7 +26,7 @@ console.log("Architecture: " + os.arch());
 // When a new socket connects
 io.on('connection', function(socket){
     // Create terminal
-    var term = pty.spawn('/usr/local/bin/cpuscript.x', [], {
+    var term = pty.spawn('/usr/local/bin/cpuscript.x', [], { // could point to any monitoring software, just replace that string with what you want !
        name: 'xterm-color',
        cols: 80,
        rows: 30,
